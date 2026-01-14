@@ -14,10 +14,10 @@ var speed = 0.25
 var tween: Tween
 
 func _ready() -> void:
-	#$StarName.text = starName
 	$MouseZone.mouse_shape_entered.connect(self.star_in)
 	$MouseZone.mouse_shape_exited.connect(self.star_out)
 	$MouseZone.input_event.connect(self.on_star_pressed)
+	add_to_group("Stars")
 
 	
 func star_in(shape_idx = 0):

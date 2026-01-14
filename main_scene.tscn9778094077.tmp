@@ -1061,20 +1061,13 @@ tile_map_data = PackedByteArray("AAD//wAAAAAIAA0AAAAAAP//AAAJAAwAAAAAAAAAAAAJAA0
 starName = "Aldebaran"
 
 [node name="Star4" parent="." instance=ExtResource("2_2c62f")]
-position = Vector2(654, 139)
+position = Vector2(1066, 455)
 tile_map_data = PackedByteArray("AAD/////AAAOAAwAAAD//wAAAAAOAA0AAAAAAP//AAAPAAwAAAAAAAAAAAAPAA0AAAA=")
 starName = "Pegas"
 
-[node name="Generate_button" type="Button" parent="."]
+[node name="Button" type="Button" parent="."]
 offset_left = 26.0
 offset_top = 590.0
 offset_right = 164.0
 offset_bottom = 633.0
 text = "Generate"
-
-[node name="Star5" parent="." instance=ExtResource("2_2c62f")]
-position = Vector2(937, 34)
-tile_map_data = PackedByteArray("AAD/////AAAIAAwAAAD//wAAAAAIAA0AAAAAAP//AAAJAAwAAAAAAAAAAAAJAA0AAAA=")
-starName = "Alpha Kita"
-
-[connection signal="pressed" from="Generate_button" to="." method="_on_generate_button_pressed"]
