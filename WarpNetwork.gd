@@ -7,28 +7,19 @@ extends Node
 	#for star in all_stars:
 		#warps.add_point(star.position)
 
-func generate_nearest_connections(warp_lines: Line2D, max_connections = 1, max_distance = 300):
-	var all_stars = get_tree().get_nodes_in_group("Stars")
-	warp_lines.clear_points()
+func generate_warps(warps: Line2D):
 	
-	for star in all_stars:
-		# Находим ближайшие звёзды
-		var nearby_stars = []
+	var all_stars = get_tree().get_nodes_in_group("Stars")	
+	warps.clear_points()
+	
+	for i in range(all_stars.size()):
+		var stars = all_stars[i]
 		
-		for other_star in all_stars:
-			if star == other_star:
-				continue
-				
-			var distance = star.position.distance_to(other_star.position)
-			if distance < max_distance:
-				nearby_stars.append({"star": other_star, "distance": distance})
+		var connections = randi_range(1, 2)
 		
-		# Сортируем по расстоянию
-		nearby_stars.sort_custom(func(a, b): return a["distance"] < b["distance"])
-		
-		# Соединяем с ближайшими (но не более max_connections)
-		var connections = min(nearby_stars.size(), max_connections)
-		for i in range(connections):
-			var target = nearby_stars[i]["star"]
-			warp_lines.add_point(star.position)
-			warp_lines.add_point(target.position)
+		for j in range(connections):
+			var target_index = i
+			while i == target_index:
+				target_index = randi_range(0, all_stars.size() - 1)
+			warps.add_point(stars.position)
+			warps.add_point(all_stars[target_index].position)
