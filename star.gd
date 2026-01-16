@@ -11,8 +11,8 @@ extends AnimatedSprite2D
 		notify_property_list_changed()
 
 
-var before = self.scale
-var after = self.scale + Vector2(0.5, 0.5)
+var before
+var after
 var speed = 0.25
 var tween: Tween
 
@@ -20,6 +20,8 @@ func _ready() -> void:
 	$MouseZone.mouse_shape_entered.connect(self.star_in)
 	$MouseZone.mouse_shape_exited.connect(self.star_out)
 	$MouseZone.input_event.connect(self.on_star_pressed)
+	before = self.scale
+	after = self.scale + Vector2(0.5, 0.5)
 	add_to_group("Stars")
 
 	

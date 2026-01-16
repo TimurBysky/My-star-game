@@ -23,6 +23,8 @@ func spawn_points():
 		if(!star_names.is_empty()):
 			instance.starName = star_names.pick_random()
 			instance.frame = randi_range(0, 3)
+			var scale_multipler = randf_range(0.5, 1.5)
+			instance.scale = Vector2(scale_multipler, scale_multipler)
 			star_names.erase(instance.starName)
 		add_child(instance)
 
