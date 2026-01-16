@@ -19,14 +19,21 @@ func spawn_points():
 	
 	for point in points:
 		var instance = point_scene.instantiate()
+		var star = instance.get_node("StarImage")
+		var is_black_hole: bool = (randi_range(1, 40) == 20)
+		var scale_multipler: float
 		instance.position = point
-		if(!star_names.is_empty()):
-			var star = instance.get_node("StarImage")
+		if(is_black_hole):
+			instance.starName = "Black Hole"
+			star.frame = 4 
+			scale_multipler = randf_range(0.25, 1.0)
+		if(!star_names.is_empty() and !is_black_hole):
 			instance.starName = star_names.pick_random()
-			star.frame = randi_range(0, 3)
-			var scale_multipler = randf_range(0.5, 2.0)
-			star.scale = Vector2(scale_multipler, scale_multipler)
 			star_names.erase(instance.starName)
+		if(!is_black_hole):		
+			star.frame = randi_range(0, 3)
+			scale_multipler = randf_range(0.5, 2.0)
+		star.scale = Vector2(scale_multipler, scale_multipler)
 		add_child(instance)
 
 

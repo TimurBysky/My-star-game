@@ -1036,7 +1036,7 @@ sources/1 = SubResource("TileSetAtlasSource_2c62f")
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_gyfs4")
-star_count = 15
+star_count = 20
 area_height = 600.0
 jitter = 0.8
 point_scene = ExtResource("2_2c62f")

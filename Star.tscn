@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://baxfls4ji2l36"]
+[gd_scene load_steps=10 format=3 uid="uid://baxfls4ji2l36"]
 
 [ext_resource type="Texture2D" uid="uid://c8gm4a46xefqg" path="res://assets/CelestialObjects.png" id="1_22467"]
 [ext_resource type="Script" uid="uid://denkdmgpnlpa4" path="res://star.gd" id="2_gv6bu"]
@@ -19,6 +19,10 @@ region = Rect2(192, 192, 32, 32)
 atlas = ExtResource("1_22467")
 region = Rect2(224, 192, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3s8k"]
+atlas = ExtResource("1_22467")
+region = Rect2(256, 0, 128, 97)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_w3s8k"]
 animations = [{
 "frames": [{
@@ -33,8 +37,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f880y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3s8k")
 }],
-"loop": true,
+"loop": false,
 "name": &"Stars",
 "speed": 5.0
 }]
