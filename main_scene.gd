@@ -21,10 +21,11 @@ func spawn_points():
 		var instance = point_scene.instantiate()
 		instance.position = point
 		if(!star_names.is_empty()):
+			var star = instance.get_node("StarImage")
 			instance.starName = star_names.pick_random()
-			instance.frame = randi_range(0, 3)
-			var scale_multipler = randf_range(0.5, 1.5)
-			instance.scale = Vector2(scale_multipler, scale_multipler)
+			star.frame = randi_range(0, 3)
+			var scale_multipler = randf_range(0.5, 2.0)
+			star.scale = Vector2(scale_multipler, scale_multipler)
 			star_names.erase(instance.starName)
 		add_child(instance)
 

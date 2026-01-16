@@ -34,7 +34,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f880y")
 }],
-"loop": false,
+"loop": true,
 "name": &"Stars",
 "speed": 5.0
 }]
@@ -42,12 +42,19 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gv6bu"]
 radius = 24.0
 
-[node name="Star" type="AnimatedSprite2D"]
+[node name="Star" type="Node2D"]
+script = ExtResource("2_gv6bu")
+
+[node name="StarImage" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w3s8k")
 animation = &"Stars"
-frame = 3
-frame_progress = 1.0
-script = ExtResource("2_gv6bu")
+
+[node name="MouseZone" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseZone"]
+shape = SubResource("CircleShape2D_gv6bu")
+metadata/_edit_lock_ = true
 
 [node name="StarName" type="Label" parent="."]
 offset_left = -64.0
@@ -57,11 +64,4 @@ offset_bottom = 40.0
 text = "Star"
 horizontal_alignment = 1
 autowrap_mode = 1
-metadata/_edit_lock_ = true
-
-[node name="MouseZone" type="Area2D" parent="."]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseZone"]
-shape = SubResource("CircleShape2D_gv6bu")
 metadata/_edit_lock_ = true

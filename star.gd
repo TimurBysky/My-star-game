@@ -1,5 +1,5 @@
 @tool
-extends AnimatedSprite2D
+extends Node2D
 
 @export var star_size: Vector2i = Vector2i(2, 2)  # Размер звезды в тайлах
 @export var star_variants_count: int = 4  # Количество вариантов звезд
