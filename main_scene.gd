@@ -22,6 +22,7 @@ func spawn_points():
 		instance.position = point
 		if(!star_names.is_empty()):
 			instance.starName = star_names.pick_random()
+			instance.frame = randi_range(0, 3)
 			star_names.erase(instance.starName)
 		add_child(instance)
 
