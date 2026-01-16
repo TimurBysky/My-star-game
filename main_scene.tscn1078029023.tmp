@@ -1044,7 +1044,7 @@ metadata/_edit_lock_ = true
 
 [node name="Warps" type="Line2D" parent="."]
 width = 2.0
-default_color = Color(9.62615e-07, 0.8225307, 0.82659924, 1)
+default_color = Color(0.16862746, 1, 1, 1)
 
 [node name="Star" parent="." instance=ExtResource("2_2c62f")]
 position = Vector2(476, 352)
