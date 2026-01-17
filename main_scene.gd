@@ -5,7 +5,7 @@ extends Node2D
 @export var area_width: float = 1000.0
 @export var area_height: float = 800.0
 @export var jitter: float = 0.4
-@export var is_black_hole_chance: int = 5
+@export var is_black_hole_chance = 5.0
 @export var point_scene: PackedScene
 @onready var galaxyGeneration = GalaxyGeneration.new()
 
@@ -13,16 +13,17 @@ var star_names = ["Sun", "Sirius", "Gamma", "Alpha", "Beta", "Delta", "Betelgeis
 "Tetta", "Omega","Prime","Lamda","Mega","Epsilon","Psi","Dzeta","Yota","Kappa", "Ksi", "Omicron", "Sigma"]
 
 func _ready():
+	connect_signals()
 	spawn_points()
 
 func spawn_points():
 	var points = galaxyGeneration.generate_jittered_points(star_count, area_width, area_height, jitter)
+	var available_star_names = star_names.duplicate()
 	
 	for point in points:
 		var instance = point_scene.instantiate()
 		var star = instance.get_node("StarImage")
 		var is_black_hole: bool = (randi() % 100) < is_black_hole_chance
-		var available_star_names = star_names.duplicate()
 		var scale_multipler: float
 		instance.position = point
 		if(is_black_hole):
@@ -45,7 +46,19 @@ func _on_generate_button_pressed() -> void:
 		star.queue_free()
 	spawn_points()#Создаём заново
 
-func _on_h_slider_value_changed(value: float) -> void:
-	is_black_hole_chance = $UI_Layer/UI/MarginContainer/VBoxContainer/HSlider.value
-	$UI_Layer/UI/MarginContainer/VBoxContainer/Black_hole_text.text = "% Появления чёрной дыры: " \
-	 + str(is_black_hole_chance)
+func connect_signals():
+	var black_hole_slider = $UI_Layer/UI/MarginContainer/VBoxContainer/HSlider
+	var black_hole_label = $UI_Layer/UI/MarginContainer/VBoxContainer/Black_hole_text
+	
+	var amount_of_stars_slider = $UI_Layer/UI/MarginContainer/VBoxContainer/HSlider2
+	var amount_of_stars_label = $UI_Layer/UI/MarginContainer/VBoxContainer/Amount_of_stars
+	
+	black_hole_slider.value_changed.connect(func(value: float):
+		is_black_hole_chance = value
+		black_hole_label.text = "Шанс появления чёрной дыры: " + str(is_black_hole_chance)
+		)
+		
+	amount_of_stars_slider.value_changed.connect(func(value: float):
+		star_count = value
+		amount_of_stars_label.text = "Кол-во звёзд: " + str(star_count)
+		)
