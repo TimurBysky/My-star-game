@@ -18,4 +18,4 @@ func _input(event):
 	
 	# Перетаскивание правой кнопкой мыши
 	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		position -= event.relative * zoom
+		position -= event.relative/zoom

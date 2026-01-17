@@ -18,3 +18,9 @@ config/icon="res://icon.svg"
 [display]
 
 window/size/always_on_top=true
+
+[editor]
+
+movie_writer/ogv/encoding_speed=3
+movie_writer/movie_file="C:/Program Files/Steam/MyProjects/звёздная-игра/Game1.avi"
+movie_writer/fps=30

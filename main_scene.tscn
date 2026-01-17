@@ -1039,10 +1039,9 @@ sources/1 = SubResource("TileSetAtlasSource_2c62f")
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_gyfs4")
-star_count = 20
 area_width = 2200.0
 area_height = 1300.0
-jitter = 0.8
+jitter = 2.7
 point_scene = ExtResource("2_2c62f")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -1090,6 +1089,15 @@ theme_override_constants/margin_bottom = 35
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI_Layer/UI/MarginContainer"]
 layout_mode = 2
+
+[node name="Deviation_text" type="Label" parent="UI_Layer/UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Отклонение: "
+
+[node name="HSlider3" type="HSlider" parent="UI_Layer/UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 10.0
+step = 0.1
 
 [node name="Amount_of_stars" type="Label" parent="UI_Layer/UI/MarginContainer/VBoxContainer"]
 layout_mode = 2

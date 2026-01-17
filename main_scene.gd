@@ -29,13 +29,13 @@ func spawn_points():
 		if(is_black_hole):
 			instance.starName = "Black Hole"
 			star.frame = 4 
-			scale_multipler = randf_range(0.25, 0.5)
+			scale_multipler = randf_range(0.25, 1.0)
 		if(!available_star_names.is_empty() and !is_black_hole):
 			instance.starName = available_star_names.pick_random()
 			available_star_names.erase(instance.starName)
 		if(!is_black_hole):		
 			star.frame = randi_range(0, 3)
-			scale_multipler = randf_range(0.5, 1.5)
+			scale_multipler = randf_range(0.5, 2.0)
 		star.scale = Vector2(scale_multipler, scale_multipler)
 		add_child(instance)
 
@@ -50,15 +50,23 @@ func connect_signals():
 	var black_hole_slider = $UI_Layer/UI/MarginContainer/VBoxContainer/HSlider
 	var black_hole_label = $UI_Layer/UI/MarginContainer/VBoxContainer/Black_hole_text
 	
-	var amount_of_stars_slider = $UI_Layer/UI/MarginContainer/VBoxContainer/HSlider2
-	var amount_of_stars_label = $UI_Layer/UI/MarginContainer/VBoxContainer/Amount_of_stars
-	
 	black_hole_slider.value_changed.connect(func(value: float):
 		is_black_hole_chance = value
 		black_hole_label.text = "Шанс появления чёрной дыры: " + str(is_black_hole_chance)
-		)
-		
+	)
+	
+	var amount_of_stars_slider = $UI_Layer/UI/MarginContainer/VBoxContainer/HSlider2
+	var amount_of_stars_label = $UI_Layer/UI/MarginContainer/VBoxContainer/Amount_of_stars
+
 	amount_of_stars_slider.value_changed.connect(func(value: float):
 		star_count = value
 		amount_of_stars_label.text = "Кол-во звёзд: " + str(star_count)
+		)
+
+	var deviation_text = $UI_Layer/UI/MarginContainer/VBoxContainer/Deviation_text
+	var deviation_slider = $UI_Layer/UI/MarginContainer/VBoxContainer/HSlider3
+	
+	deviation_slider.value_changed.connect(func(value: float):
+		jitter = value
+		deviation_text.text = "Отклонение: " + str(jitter)
 		)
