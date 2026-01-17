@@ -5,6 +5,7 @@ extends Node2D
 @export var area_width: float = 1000.0
 @export var area_height: float = 800.0
 @export var jitter: float = 0.4
+@export var is_black_hole_chance: int = 40
 @export var point_scene: PackedScene
 @onready var galaxyGeneration = GalaxyGeneration.new()
 
