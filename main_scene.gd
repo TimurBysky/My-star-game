@@ -5,7 +5,7 @@ extends Node2D
 @export var area_width: float = 1000.0
 @export var area_height: float = 800.0
 @export var jitter: float = 0.4
-@export var is_black_hole_chance: int = 40
+@export var is_black_hole_chance: int = 5
 @export var point_scene: PackedScene
 @onready var galaxyGeneration = GalaxyGeneration.new()
 
@@ -21,16 +21,17 @@ func spawn_points():
 	for point in points:
 		var instance = point_scene.instantiate()
 		var star = instance.get_node("StarImage")
-		var is_black_hole: bool = (randi_range(1, 40) == 20)
+		var is_black_hole: bool = (randi() % 100) < is_black_hole_chance
+		var available_star_names = star_names.duplicate()
 		var scale_multipler: float
 		instance.position = point
 		if(is_black_hole):
 			instance.starName = "Black Hole"
 			star.frame = 4 
 			scale_multipler = randf_range(0.25, 1.0)
-		if(!star_names.is_empty() and !is_black_hole):
-			instance.starName = star_names.pick_random()
-			star_names.erase(instance.starName)
+		if(!available_star_names.is_empty() and !is_black_hole):
+			instance.starName = available_star_names.pick_random()
+			available_star_names.erase(instance.starName)
 		if(!is_black_hole):		
 			star.frame = randi_range(0, 3)
 			scale_multipler = randf_range(0.5, 2.0)
@@ -39,4 +40,12 @@ func spawn_points():
 
 
 func _on_generate_button_pressed() -> void:
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
+	for star in get_tree().get_nodes_in_group("Stars"): #Очищяем
+		star.queue_free()
+	spawn_points()#Создаём заново
+
+func _on_h_slider_value_changed(value: float) -> void:
+	is_black_hole_chance = $UI_Layer/UI/MarginContainer/VBoxContainer/HSlider.value
+	$UI_Layer/UI/MarginContainer/VBoxContainer/Black_hole_text.text = "% Появления чёрной дыры: " \
+	 + str(is_black_hole_chance)
