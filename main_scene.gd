@@ -29,13 +29,13 @@ func spawn_points():
 		if(is_black_hole):
 			instance.starName = "Black Hole"
 			star.frame = 4 
-			scale_multipler = randf_range(0.25, 1.0)
+			scale_multipler = randf_range(0.25, 0.5)
 		if(!available_star_names.is_empty() and !is_black_hole):
 			instance.starName = available_star_names.pick_random()
 			available_star_names.erase(instance.starName)
 		if(!is_black_hole):		
 			star.frame = randi_range(0, 3)
-			scale_multipler = randf_range(0.5, 2.0)
+			scale_multipler = randf_range(0.5, 1.5)
 		star.scale = Vector2(scale_multipler, scale_multipler)
 		add_child(instance)
 

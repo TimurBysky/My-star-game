@@ -14,3 +14,7 @@ config/name="Звёздная игра"
 run/main_scene="uid://byo7vwcr3reby"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/always_on_top=true
