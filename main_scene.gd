@@ -12,6 +12,35 @@ extends Node2D
 var star_names = ["Sun", "Sirius", "Gamma", "Alpha", "Beta", "Delta", "Betelgeise", "Aldebaraan", \
 "Tetta", "Omega","Prime","Lamda","Mega","Epsilon","Psi","Dzeta","Yota","Kappa", "Ksi", "Omicron", "Sigma"]
 
+var star_color = \
+{
+	"red_star" :
+	{
+		"chance" : 65,
+		"frame" : 0
+	},
+	"blue_star" : 
+	{
+		"chance" : 5,
+		"frame" : 1
+	},
+	"yellow_star":
+	{
+		"chance" : 25,
+		"frame" : 2
+	},
+	"purple_star":
+	{
+		"chance" : 3,
+		"frame" : 3
+	}
+}
+
+var black_hole = \
+{
+	"black_hole": 4 
+}
+
 func _ready():
 	connect_signals()
 	spawn_points()
@@ -28,20 +57,19 @@ func spawn_points():
 		instance.position = point
 		if(is_black_hole):
 			instance.starName = "Black Hole"
-			star.frame = 4 
+			star.frame = black_hole.get("black_hole") 
 			scale_multipler = randf_range(0.25, 1.0)
 		if(!available_star_names.is_empty() and !is_black_hole):
 			instance.starName = available_star_names.pick_random()
 			available_star_names.erase(instance.starName)
-		if(!is_black_hole):		
-			star.frame = randi_range(0, 3)
+		if(!is_black_hole):
+			star.frame = randi() % star_color.size()
 			scale_multipler = randf_range(0.5, 2.0)
 		star.scale = Vector2(scale_multipler, scale_multipler)
 		add_child(instance)
 
 
 func _on_generate_button_pressed() -> void:
-	#get_tree().reload_current_scene()
 	for star in get_tree().get_nodes_in_group("Stars"): #Очищяем
 		star.queue_free()
 	spawn_points()#Создаём заново
@@ -70,3 +98,6 @@ func connect_signals():
 		jitter = value
 		deviation_text.text = "Отклонение: " + str(jitter)
 		)
+
+func get_random_star_with_chance():
+	var 
