@@ -42,6 +42,7 @@ var black_hole = \
 }
 
 func _ready():
+	get_random_star_with_chance()
 	connect_signals()
 	spawn_points()
 
@@ -63,7 +64,7 @@ func spawn_points():
 			instance.starName = available_star_names.pick_random()
 			available_star_names.erase(instance.starName)
 		if(!is_black_hole):
-			star.frame = randi() % star_color.size()
+			star.frame = randi() % 4
 			scale_multipler = randf_range(0.5, 2.0)
 		star.scale = Vector2(scale_multipler, scale_multipler)
 		add_child(instance)
@@ -99,5 +100,13 @@ func connect_signals():
 		deviation_text.text = "Отклонение: " + str(jitter)
 		)
 
-func get_random_star_with_chance():
-	var 
+#func get_random_star_with_chance():
+	#var chances = {}
+	#for star_name in star_color:
+		#chances[star_name] = star_color[star_name]["chance"]
+	#
+	#var is_star_found = false
+	#for chance in chances:
+		#if(randi() % 100 < chance):
+			#return star_color.find_key()
+		#
