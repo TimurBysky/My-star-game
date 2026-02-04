@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://uy5363aw2mit"]
+
+[ext_resource type="Script" uid="uid://cu2o1a6mqbqbx" path="res://planet.gd" id="1_mtr83"]
+[ext_resource type="PackedScene" uid="uid://dyyylotyvd46x" path="res://planet_model.tscn" id="2_mtr83"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mtr83"]
+radius = 1.1555007
+
+[node name="Planet" type="Node3D" unique_id=921483559]
+script = ExtResource("1_mtr83")
+
+[node name="MouseZone" type="Area3D" parent="." unique_id=2019952314]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MouseZone" unique_id=925418858]
+shape = SubResource("SphereShape3D_mtr83")
+
+[node name="Planet_model" parent="." unique_id=1406116881 instance=ExtResource("2_mtr83")]
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1600104624]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.022751093, 1.4579823, 0)
+billboard = 1
+text = "Planet"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=423438016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018655777, 0, 2.9382243)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1240433629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4007983)
+shadow_enabled = true

@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b72x3oesaegwc"]
+
+[ext_resource type="Script" uid="uid://csiqv7eofu3eu" path="res://spaceship.gd" id="1_7g3nn"]
+[ext_resource type="PackedScene" uid="uid://bxqo23ucxt0xn" path="res://assets/fighter2.glb" id="1_y3uy0"]
+[ext_resource type="Texture2D" uid="uid://dekfdpxdvnn3" path="res://assets/02.png" id="3_pmkdn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7g3nn"]
+radius = 1.7900368
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cbq1"]
+atlas = ExtResource("3_pmkdn")
+region = Rect2(0, 48, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifhl"]
+atlas = ExtResource("3_pmkdn")
+region = Rect2(32, 48, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27ugt"]
+atlas = ExtResource("3_pmkdn")
+region = Rect2(64, 48, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fb5mo"]
+atlas = ExtResource("3_pmkdn")
+region = Rect2(96, 48, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_51qc7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cbq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27ugt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fb5mo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Spaceship" type="Node3D" unique_id=447347502]
+transform = Transform3D(0.9978015, 0, -0.0662739, 0, 0.99999994, 0, 0.066273905, 0, 0.9978014, 0, 0, 0)
+script = ExtResource("1_7g3nn")
+
+[node name="MouseZone" type="Area3D" parent="." unique_id=37065389]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MouseZone" unique_id=64625254]
+shape = SubResource("SphereShape3D_7g3nn")
+
+[node name="fighter2" parent="." unique_id=1799323723 instance=ExtResource("1_y3uy0")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 0, 0, 0)
+
+[node name="Name" type="Label3D" parent="." unique_id=599181751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9291899, 0)
+billboard = 1
+text = "Spaceship"
+font_size = 56
+
+[node name="Select_square" type="AnimatedSprite3D" parent="." unique_id=598636087]
+transform = Transform3D(7.071068, 1.280277e-07, -7.071068, 7.071068, -3.090862e-07, 7.071068, -1.280277e-07, -10, -3.090862e-07, 0, 0, 0)
+visible = false
+modulate = Color(1, 0, 1, 1)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_51qc7")
+autoplay = "default"
+frame_progress = 0.09926023

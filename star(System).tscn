@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://vr2xkaey6py3"]
+
+[ext_resource type="Texture2D" uid="uid://3wy1k0tevim" path="res://assets/pngwing.com2.png" id="1_iy8tb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iy8tb"]
+radius = 1.7900368
+
+[node name="Star" type="Sprite3D" unique_id=1556666332]
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, 0, 0, 0)
+billboard = 1
+texture = ExtResource("1_iy8tb")
+
+[node name="MouseZone" type="Area3D" parent="." unique_id=1517361390]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MouseZone" unique_id=214434500]
+shape = SubResource("SphereShape3D_iy8tb")

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://baxfls4ji2l36"]
+
+[ext_resource type="Texture2D" uid="uid://c8gm4a46xefqg" path="res://assets/CelestialObjects.png" id="1_22467"]
+[ext_resource type="Script" uid="uid://denkdmgpnlpa4" path="res://star.gd" id="2_gv6bu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22467"]
+atlas = ExtResource("1_22467")
+region = Rect2(128, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv6bu"]
+atlas = ExtResource("1_22467")
+region = Rect2(160, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12qeu"]
+atlas = ExtResource("1_22467")
+region = Rect2(192, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f880y"]
+atlas = ExtResource("1_22467")
+region = Rect2(224, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3s8k"]
+atlas = ExtResource("1_22467")
+region = Rect2(256, 0, 128, 97)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3s8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22467")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv6bu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12qeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f880y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3s8k")
+}],
+"loop": false,
+"name": &"Stars",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gv6bu"]
+radius = 24.0
+
+[node name="Star" type="Node2D" unique_id=443670287]
+script = ExtResource("2_gv6bu")
+
+[node name="StarImage" type="AnimatedSprite2D" parent="." unique_id=1164947490]
+sprite_frames = SubResource("SpriteFrames_w3s8k")
+animation = &"Stars"
+
+[node name="MouseZone" type="Area2D" parent="." unique_id=1056635058]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseZone" unique_id=1222562269]
+shape = SubResource("CircleShape2D_gv6bu")
+metadata/_edit_lock_ = true
+
+[node name="StarName" type="Label" parent="." unique_id=1455235180]
+offset_left = -64.0
+offset_top = 16.0
+offset_right = 64.0
+offset_bottom = 40.0
+text = "Star"
+horizontal_alignment = 1
+autowrap_mode = 1
+metadata/_edit_lock_ = true

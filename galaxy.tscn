@@ -1,0 +1,314 @@
+[gd_scene format=3 uid="uid://la258m2hbu14"]
+
+[ext_resource type="Script" uid="uid://bugcnnk0tq5eg" path="res://galaxy.gd" id="1_3van1"]
+[ext_resource type="Texture2D" uid="uid://du6sc2vyaohdl" path="res://assets/eso0932a.jpg" id="1_mlh1b"]
+[ext_resource type="Script" uid="uid://dv6crl21esnpp" path="res://camera_3d.gd" id="2_mlh1b"]
+[ext_resource type="PackedScene" uid="uid://bsnokards6g0f" path="res://system.tscn" id="3_mlh1b"]
+[ext_resource type="PackedScene" uid="uid://b72x3oesaegwc" path="res://spaceship.tscn" id="3_obluv"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3van1"]
+panorama = ExtResource("1_mlh1b")
+energy_multiplier = 0.25
+
+[sub_resource type="Sky" id="Sky_obluv"]
+sky_material = SubResource("PanoramaSkyMaterial_3van1")
+
+[sub_resource type="Environment" id="Environment_iq8kf"]
+background_mode = 2
+background_energy_multiplier = 3.52
+sky = SubResource("Sky_obluv")
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.76
+
+[sub_resource type="FontFile" id="FontFile_3van1"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/6/0/ascent = 0.0
+cache/0/6/0/descent = 0.0
+cache/0/6/0/underline_position = 0.0
+cache/0/6/0/underline_thickness = 0.0
+cache/0/6/0/scale = 1.0
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/106/0/ascent = 0.0
+cache/0/106/0/descent = 0.0
+cache/0/106/0/underline_position = 0.0
+cache/0/106/0/underline_thickness = 0.0
+cache/0/106/0/scale = 1.0
+cache/0/141/0/ascent = 0.0
+cache/0/141/0/descent = 0.0
+cache/0/141/0/underline_position = 0.0
+cache/0/141/0/underline_thickness = 0.0
+cache/0/141/0/scale = 1.0
+cache/0/206/0/ascent = 0.0
+cache/0/206/0/descent = 0.0
+cache/0/206/0/underline_position = 0.0
+cache/0/206/0/underline_thickness = 0.0
+cache/0/206/0/scale = 1.0
+cache/0/241/0/ascent = 0.0
+cache/0/241/0/descent = 0.0
+cache/0/241/0/underline_position = 0.0
+cache/0/241/0/underline_thickness = 0.0
+cache/0/241/0/scale = 1.0
+cache/0/251/0/ascent = 0.0
+cache/0/251/0/descent = 0.0
+cache/0/251/0/underline_position = 0.0
+cache/0/251/0/underline_thickness = 0.0
+cache/0/251/0/scale = 1.0
+cache/0/256/0/ascent = 0.0
+cache/0/256/0/descent = 0.0
+cache/0/256/0/underline_position = 0.0
+cache/0/256/0/underline_thickness = 0.0
+cache/0/256/0/scale = 1.0
+cache/0/231/0/ascent = 0.0
+cache/0/231/0/descent = 0.0
+cache/0/231/0/underline_position = 0.0
+cache/0/231/0/underline_thickness = 0.0
+cache/0/231/0/scale = 1.0
+cache/0/216/0/ascent = 0.0
+cache/0/216/0/descent = 0.0
+cache/0/216/0/underline_position = 0.0
+cache/0/216/0/underline_thickness = 0.0
+cache/0/216/0/scale = 1.0
+cache/0/201/0/ascent = 0.0
+cache/0/201/0/descent = 0.0
+cache/0/201/0/underline_position = 0.0
+cache/0/201/0/underline_thickness = 0.0
+cache/0/201/0/scale = 1.0
+cache/0/186/0/ascent = 0.0
+cache/0/186/0/descent = 0.0
+cache/0/186/0/underline_position = 0.0
+cache/0/186/0/underline_thickness = 0.0
+cache/0/186/0/scale = 1.0
+cache/0/181/0/ascent = 0.0
+cache/0/181/0/descent = 0.0
+cache/0/181/0/underline_position = 0.0
+cache/0/181/0/underline_thickness = 0.0
+cache/0/181/0/scale = 1.0
+cache/0/176/0/ascent = 0.0
+cache/0/176/0/descent = 0.0
+cache/0/176/0/underline_position = 0.0
+cache/0/176/0/underline_thickness = 0.0
+cache/0/176/0/scale = 1.0
+cache/0/171/0/ascent = 0.0
+cache/0/171/0/descent = 0.0
+cache/0/171/0/underline_position = 0.0
+cache/0/171/0/underline_thickness = 0.0
+cache/0/171/0/scale = 1.0
+cache/0/161/0/ascent = 0.0
+cache/0/161/0/descent = 0.0
+cache/0/161/0/underline_position = 0.0
+cache/0/161/0/underline_thickness = 0.0
+cache/0/161/0/scale = 1.0
+cache/0/151/0/ascent = 0.0
+cache/0/151/0/descent = 0.0
+cache/0/151/0/underline_position = 0.0
+cache/0/151/0/underline_thickness = 0.0
+cache/0/151/0/scale = 1.0
+cache/0/146/0/ascent = 0.0
+cache/0/146/0/descent = 0.0
+cache/0/146/0/underline_position = 0.0
+cache/0/146/0/underline_thickness = 0.0
+cache/0/146/0/scale = 1.0
+cache/0/136/0/ascent = 0.0
+cache/0/136/0/descent = 0.0
+cache/0/136/0/underline_position = 0.0
+cache/0/136/0/underline_thickness = 0.0
+cache/0/136/0/scale = 1.0
+cache/0/131/0/ascent = 0.0
+cache/0/131/0/descent = 0.0
+cache/0/131/0/underline_position = 0.0
+cache/0/131/0/underline_thickness = 0.0
+cache/0/131/0/scale = 1.0
+cache/0/126/0/ascent = 0.0
+cache/0/126/0/descent = 0.0
+cache/0/126/0/underline_position = 0.0
+cache/0/126/0/underline_thickness = 0.0
+cache/0/126/0/scale = 1.0
+cache/0/121/0/ascent = 0.0
+cache/0/121/0/descent = 0.0
+cache/0/121/0/underline_position = 0.0
+cache/0/121/0/underline_thickness = 0.0
+cache/0/121/0/scale = 1.0
+cache/0/111/0/ascent = 0.0
+cache/0/111/0/descent = 0.0
+cache/0/111/0/underline_position = 0.0
+cache/0/111/0/underline_thickness = 0.0
+cache/0/111/0/scale = 1.0
+cache/0/101/0/ascent = 0.0
+cache/0/101/0/descent = 0.0
+cache/0/101/0/underline_position = 0.0
+cache/0/101/0/underline_thickness = 0.0
+cache/0/101/0/scale = 1.0
+cache/0/96/0/ascent = 0.0
+cache/0/96/0/descent = 0.0
+cache/0/96/0/underline_position = 0.0
+cache/0/96/0/underline_thickness = 0.0
+cache/0/96/0/scale = 1.0
+cache/0/86/0/ascent = 0.0
+cache/0/86/0/descent = 0.0
+cache/0/86/0/underline_position = 0.0
+cache/0/86/0/underline_thickness = 0.0
+cache/0/86/0/scale = 1.0
+cache/0/81/0/ascent = 0.0
+cache/0/81/0/descent = 0.0
+cache/0/81/0/underline_position = 0.0
+cache/0/81/0/underline_thickness = 0.0
+cache/0/81/0/scale = 1.0
+cache/0/76/0/ascent = 0.0
+cache/0/76/0/descent = 0.0
+cache/0/76/0/underline_position = 0.0
+cache/0/76/0/underline_thickness = 0.0
+cache/0/76/0/scale = 1.0
+cache/0/71/0/ascent = 0.0
+cache/0/71/0/descent = 0.0
+cache/0/71/0/underline_position = 0.0
+cache/0/71/0/underline_thickness = 0.0
+cache/0/71/0/scale = 1.0
+cache/0/66/0/ascent = 0.0
+cache/0/66/0/descent = 0.0
+cache/0/66/0/underline_position = 0.0
+cache/0/66/0/underline_thickness = 0.0
+cache/0/66/0/scale = 1.0
+cache/0/61/0/ascent = 0.0
+cache/0/61/0/descent = 0.0
+cache/0/61/0/underline_position = 0.0
+cache/0/61/0/underline_thickness = 0.0
+cache/0/61/0/scale = 1.0
+cache/0/51/0/ascent = 0.0
+cache/0/51/0/descent = 0.0
+cache/0/51/0/underline_position = 0.0
+cache/0/51/0/underline_thickness = 0.0
+cache/0/51/0/scale = 1.0
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/1/0/ascent = 0.0
+cache/0/1/0/descent = 0.0
+cache/0/1/0/underline_position = 0.0
+cache/0/1/0/underline_thickness = 0.0
+cache/0/1/0/scale = 1.0
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/41/0/ascent = 0.0
+cache/0/41/0/descent = 0.0
+cache/0/41/0/underline_position = 0.0
+cache/0/41/0/underline_thickness = 0.0
+cache/0/41/0/scale = 1.0
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+
+[node name="Galaxy" type="Node3D" unique_id=1571619236]
+script = ExtResource("1_3van1")
+min_distance = 20.0
+point_scene = ExtResource("3_mlh1b")
+spaceship = ExtResource("3_obluv")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1679311524]
+transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, 1.0000002, 0, -1.0000001, -4.37114e-08, 194.425, 185, 224.445)
+script = ExtResource("2_mlh1b")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2125144682]
+environment = SubResource("Environment_iq8kf")
+
+[node name="UI_Layer" type="CanvasLayer" parent="." unique_id=564537615]
+
+[node name="UI" type="Control" parent="UI_Layer" unique_id=416697192]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -324.0
+offset_right = 1150.0
+offset_bottom = 325.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="UI_Layer/UI" unique_id=200552032]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -442.0
+offset_right = 303.0
+grow_vertical = 0
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_bottom = 70
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI_Layer/UI/MarginContainer" unique_id=421033743]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Deviation_text" type="Label" parent="UI_Layer/UI/MarginContainer/VBoxContainer" unique_id=1514521493]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_3van1")
+theme_override_font_sizes/font_size = 12
+text = "Отклонение: "
+
+[node name="HSlider3" type="HSlider" parent="UI_Layer/UI/MarginContainer/VBoxContainer" unique_id=90153495]
+layout_mode = 2
+max_value = 5.0
+step = 0.1
+
+[node name="Amount_of_stars" type="Label" parent="UI_Layer/UI/MarginContainer/VBoxContainer" unique_id=826515994]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_3van1")
+theme_override_font_sizes/font_size = 12
+text = "Кол-во звёзд:"
+
+[node name="HSlider2" type="HSlider" parent="UI_Layer/UI/MarginContainer/VBoxContainer" unique_id=303721053]
+layout_mode = 2
+
+[node name="Generate_button" type="Button" parent="UI_Layer/UI/MarginContainer/VBoxContainer" unique_id=867884896]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Сгенерировать"
+
+[node name="Clear_button" type="Button" parent="UI_Layer/UI/MarginContainer/VBoxContainer" unique_id=2051705391]
+layout_mode = 2
+text = "Удалить всё"
+
+[connection signal="pressed" from="UI_Layer/UI/MarginContainer/VBoxContainer/Generate_button" to="." method="_on_generate_button_pressed"]
+[connection signal="pressed" from="UI_Layer/UI/MarginContainer/VBoxContainer/Clear_button" to="." method="_on_clear_button_pressed"]

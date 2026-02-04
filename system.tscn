@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bsnokards6g0f"]
+
+[ext_resource type="Script" uid="uid://dfuy1vydhejy3" path="res://system.gd" id="1_uxn6b"]
+[ext_resource type="PackedScene" uid="uid://uy5363aw2mit" path="res://planet.tscn" id="2_m3jav"]
+[ext_resource type="Texture2D" uid="uid://x4rmm61lf3ii" path="res://assets/pngwing.com3.png" id="4_q6dkd"]
+[ext_resource type="Texture2D" uid="uid://dekfdpxdvnn3" path="res://assets/02.png" id="5_1exhk"]
+[ext_resource type="PackedScene" uid="uid://vr2xkaey6py3" path="res://star(System).tscn" id="5_q6dkd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cbq1"]
+atlas = ExtResource("5_1exhk")
+region = Rect2(0, 48, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifhl"]
+atlas = ExtResource("5_1exhk")
+region = Rect2(32, 48, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27ugt"]
+atlas = ExtResource("5_1exhk")
+region = Rect2(64, 48, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fb5mo"]
+atlas = ExtResource("5_1exhk")
+region = Rect2(96, 48, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oj81r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cbq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27ugt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fb5mo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="System" type="Node3D" unique_id=1755024557]
+transform = Transform3D(-3.0908616e-08, -3.0908616e-08, 1, -0.7071067, 0.7071067, 0, -0.7071067, -0.7071067, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1_uxn6b")
+planet_scene = ExtResource("2_m3jav")
+
+[node name="Star" parent="." unique_id=1556666332 instance=ExtResource("5_q6dkd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+modulate = Color(1, 0, 0.03529412, 1)
+texture = ExtResource("4_q6dkd")
+
+[node name="Star_name" type="Label3D" parent="." unique_id=799155578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 3.5527137e-15, 3.5527137e-15, 1, -0.76026654, 0.76026654, 0)
+billboard = 1
+text = "Star"
+font_size = 98
+
+[node name="Select_square" type="AnimatedSprite3D" parent="." unique_id=2071132850]
+transform = Transform3D(7.071068, 1.280277e-07, -7.071068, 7.071068, -3.090862e-07, 7.071068, -1.280277e-07, -10, -3.090862e-07, 0, 0, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_oj81r")
+autoplay = "default"
+frame_progress = 0.43405065

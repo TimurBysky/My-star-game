@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dyyylotyvd46x"]
+
+[ext_resource type="Texture2D" uid="uid://bb7yrmkrhrsih" path="res://Planet_Jungle_03-1024x512.png" id="1_10sqs"]
+[ext_resource type="Script" uid="uid://bja4g0kr2uc2s" path="res://planet_model.gd" id="2_vegx7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_vegx7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hns53"]
+albedo_texture = ExtResource("1_10sqs")
+
+[sub_resource type="Animation" id="Animation_afo0g"]
+resource_name = "Idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.1415927, 0), Vector3(0, 6.265732, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o45oi"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_53x4k"]
+_data = {
+&"Idle": SubResource("Animation_afo0g"),
+&"RESET": SubResource("Animation_o45oi")
+}
+
+[node name="Planet_model" type="MeshInstance3D" unique_id=1406116881]
+mesh = SubResource("SphereMesh_vegx7")
+surface_material_override/0 = SubResource("StandardMaterial3D_hns53")
+script = ExtResource("2_vegx7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1473814354]
+libraries/ = SubResource("AnimationLibrary_53x4k")
+autoplay = &"Idle"

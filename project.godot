@@ -1,0 +1,34 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="Звёздная игра"
+run/main_scene="uid://la258m2hbu14"
+config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Events="*uid://cf0i41cyg53aj"
+PreloadTextures="*uid://cl550rl6nb0vc"
+
+[display]
+
+window/size/always_on_top=true
+
+[editor]
+
+movie_writer/ogv/encoding_speed=2
+movie_writer/movie_file="D:/MyProjects/My-star-game-WithoutWaprs/Game.avi"
