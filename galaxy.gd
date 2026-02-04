@@ -87,11 +87,13 @@ func spawn_star(star_position: Vector3):
 	instance.star_clicked.connect(camera3D._on_star_clicked)
 	instance.star_clicked.connect(on_star_clicked)
 	instance.move_star_clicked.connect(on_star_move_clicked)
+	instance.planet_clicked.connect(on_planet_clicked)
 	var star_type = get_random_star_with_chance()
 	star.modulate = star_types[star_type]["color"]
 	scale_multipler = randf_range(star_types[star_type]["size_min"], star_types[star_type]["size_max"])
 	star.scale = Vector3(scale_multipler, scale_multipler, scale_multipler)
 	add_child(instance)
+
 	
 func spawn_spaceship():
 	var instance = spaceship.instantiate()
@@ -168,13 +170,19 @@ func get_mouse_ground_position(height: float = 0.0) -> Vector3:
 func on_star_clicked(star: Node3D):
 	selected_star_system = star
 
+func on_spaceship_clicked(spaceship: Node3D):
+	selected_spaceship = spaceship
+
 func on_star_move_clicked(star: Node3D):
 	target_star = star
 	if selected_spaceship != null:
 		selected_spaceship.move_to_(target_star)
 	
-func on_spaceship_clicked(spaceship: Node3D):
-	selected_spaceship = spaceship
+func on_planet_clicked(planet: Node3D):
+	print("Сигнал из главной сцены! Вижу планету: ", planet)
+	camera3D.current = false
+	var planet_cam = planet.get_node("Camera3D")
+	planet_cam.current = true
 
 func _on_generate_button_pressed() -> void:
 	clear_all() #Очищаем всё
