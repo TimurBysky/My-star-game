@@ -17,10 +17,13 @@ func _ready() -> void:
 	Selected_square.visible = false
 	add_to_group("Stars")
 
+
 	for i in randi_range(0,5):
 		var instance = planet_scene.instantiate()
 		planet_position += Vector3(0.0,0.0,randf_range(3.0, 4.5))
 		instance.position = planet_position
+		var layer_mask = 1 << i
+		instance.current_layer = layer_mask
 		var mouse_zone = instance.get_node("MouseZone")
 		mouse_zone.input_event.connect(on_planet_pressed.bind(instance))
 		var random_scale = randf_range(0.8, 2.0)
@@ -34,7 +37,6 @@ func on_planet_pressed(camera: Camera3D, event: InputEvent, position: Vector3, n
 	if event is InputEventMouseButton:
 		var mouse_event = event as InputEventMouseButton
 		if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT:
-			print("Планета нажата!")
 			planet_clicked.emit(planet)
 
 func on_star_pressed(camera: Camera3D, event: InputEvent, position: Vector3, normal: Vector3, shape_idx: int):
@@ -43,10 +45,8 @@ func on_star_pressed(camera: Camera3D, event: InputEvent, position: Vector3, nor
 		if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT:
 			Selected_square.visible = true
 			star_clicked.emit(self)
-			print("Звезда нажата!")
 		if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_RIGHT:
 			move_star_clicked.emit(self)
-			print("Звезда нажата!")
 			#update_camera_position($Star)
 
 func _input(event: InputEvent) -> void:

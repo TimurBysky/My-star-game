@@ -2,9 +2,19 @@
 
 [ext_resource type="Script" uid="uid://cu2o1a6mqbqbx" path="res://planet.gd" id="1_mtr83"]
 [ext_resource type="PackedScene" uid="uid://dyyylotyvd46x" path="res://planet_model.tscn" id="2_mtr83"]
+[ext_resource type="Texture2D" uid="uid://c73508g5tbrpj" path="res://Green_Nebula_06-512x512.png" id="3_a75xc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mtr83"]
 radius = 1.1555007
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a75xc"]
+panorama = ExtResource("3_a75xc")
+
+[sub_resource type="Sky" id="Sky_x6khl"]
+sky_material = SubResource("PanoramaSkyMaterial_a75xc")
+
+[sub_resource type="Environment" id="Environment_mtr83"]
+sky = SubResource("Sky_x6khl")
 
 [node name="Planet" type="Node3D" unique_id=921483559]
 script = ExtResource("1_mtr83")
@@ -21,10 +31,71 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.022751093, 1.4579823, 0)
 billboard = 1
 text = "Planet"
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=423438016]
-transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -2.0225906, 0.41, 1.0686016)
-far = 5.0
-
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1240433629]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4007983)
-shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=423438016]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -2.105, 0.52, 0.655)
+cull_mask = 0
+environment = SubResource("Environment_mtr83")
+size = 2.515
+far = 10.0
+
+[node name="UI_Layer" type="CanvasLayer" parent="." unique_id=1242427948]
+visible = false
+
+[node name="UI" type="Control" parent="UI_Layer" unique_id=409988263]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -324.0
+offset_right = 1150.0
+offset_bottom = 325.0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="UI_Layer/UI" unique_id=1197681866]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -646.0
+offset_right = 1155.0
+grow_vertical = 0
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 70
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI_Layer/UI/MarginContainer" unique_id=215230307]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="build_button_i" type="Button" parent="UI_Layer/UI/MarginContainer/VBoxContainer2" unique_id=1173811282]
+layout_mode = 2
+text = "Посторить завод"
+
+[node name="build_button_f" type="Button" parent="UI_Layer/UI/MarginContainer/VBoxContainer2" unique_id=65905699]
+layout_mode = 2
+text = "Посторить фермы"
+
+[node name="build_button_s" type="Button" parent="UI_Layer/UI/MarginContainer/VBoxContainer2" unique_id=904907372]
+layout_mode = 2
+text = "Посторить корабль"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI_Layer/UI/MarginContainer" unique_id=97637806]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="exit_button" type="Button" parent="UI_Layer/UI/MarginContainer/VBoxContainer" unique_id=531581873]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "Выйти"
+
+[connection signal="pressed" from="UI_Layer/UI/MarginContainer/VBoxContainer/exit_button" to="." method="_on_exit_button_pressed"]

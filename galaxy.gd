@@ -11,6 +11,7 @@ extends Node3D
 @export var point_scene: PackedScene
 @export var spaceship: PackedScene
 @onready var galaxyGeneration = GalaxyGeneration3D.new()
+@onready var UI = $UI_Layer
 
 var selected_star_system: Node3D
 var selected_spaceship: Node3D
@@ -179,10 +180,8 @@ func on_star_move_clicked(star: Node3D):
 		selected_spaceship.move_to_(target_star)
 	
 func on_planet_clicked(planet: Node3D):
-	print("Сигнал из главной сцены! Вижу планету: ", planet)
-	camera3D.current = false
-	var planet_cam = planet.get_node("Camera3D")
-	planet_cam.current = true
+	planet.activate_UI(camera3D, UI)
+
 
 func _on_generate_button_pressed() -> void:
 	clear_all() #Очищаем всё
