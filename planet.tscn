@@ -111,7 +111,7 @@ text = "Уровень науки:"
 layout_mode = 2
 text = "Уровень еды:"
 
-[node name="_label" type="Label" parent="UI_Layer/UI/MarginContainer/VBoxContainer3" unique_id=2049975959]
+[node name="industry_label" type="Label" parent="UI_Layer/UI/MarginContainer/VBoxContainer3" unique_id=2049975959]
 layout_mode = 2
 text = "Уровень производства:"
 
