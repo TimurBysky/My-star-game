@@ -15,6 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Звёздная игра"
+config/tags=PackedStringArray("4x", "strategy")
 run/main_scene="uid://la258m2hbu14"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
@@ -32,3 +33,5 @@ window/size/always_on_top=true
 
 movie_writer/ogv/encoding_speed=2
 movie_writer/movie_file="D:/MyProjects/My-star-game-WithoutWaprs/Game.avi"
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true

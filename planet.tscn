@@ -98,4 +98,21 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 text = "Выйти"
 
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI_Layer/UI/MarginContainer" unique_id=1564431986]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="science_label" type="Label" parent="UI_Layer/UI/MarginContainer/VBoxContainer3" unique_id=184565447]
+layout_mode = 2
+text = "Уровень науки:"
+
+[node name="food_label" type="Label" parent="UI_Layer/UI/MarginContainer/VBoxContainer3" unique_id=1266471357]
+layout_mode = 2
+text = "Уровень еды:"
+
+[node name="_label" type="Label" parent="UI_Layer/UI/MarginContainer/VBoxContainer3" unique_id=2049975959]
+layout_mode = 2
+text = "Уровень производства:"
+
 [connection signal="pressed" from="UI_Layer/UI/MarginContainer/VBoxContainer/exit_button" to="." method="_on_exit_button_pressed"]
