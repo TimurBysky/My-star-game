@@ -55,7 +55,7 @@ texture = ExtResource("4_q6dkd")
 [node name="Star_name" type="Label3D" parent="." unique_id=799155578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 3.5527137e-15, 3.5527137e-15, 1, -0.76026654, 0.76026654, 0)
 billboard = 1
-text = "Star"
+text = "Звезда"
 font_size = 98
 
 [node name="Select_square" type="AnimatedSprite3D" parent="." unique_id=2071132850]

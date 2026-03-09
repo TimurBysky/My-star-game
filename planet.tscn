@@ -29,7 +29,7 @@ shape = SubResource("SphereShape3D_mtr83")
 [node name="Label3D" type="Label3D" parent="." unique_id=1600104624]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.022751093, 1.4579823, 0)
 billboard = 1
-text = "Planet"
+text = "Планета"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1240433629]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4007983)

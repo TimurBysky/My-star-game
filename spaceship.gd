@@ -1,6 +1,8 @@
 extends Node3D
 
 @onready var Selected_square = $Select_square
+@onready var model = $fighter2
+
 var parent_star: Node3D
 var move_to_star = false
 var target_star: Node3D
@@ -32,7 +34,7 @@ func move_to_(star: Node3D):
 			tween.set_trans(Tween.TRANS_BACK)
 			tween.set_ease(Tween.EASE_OUT)
 			
-			tween.tween_property(self, "rotation", target_rot, 1.5)
+			tween.tween_property(model, "rotation", target_rot, 1.5)
 			
 			# Колбэк по завершении
 			tween.finished.connect(func():
@@ -56,7 +58,7 @@ func _process(delta: float) -> void:
 			var tween = create_tween()
 			tween.set_trans(Tween.TRANS_BACK)
 			tween.set_ease(Tween.EASE_OUT)
-			tween.tween_property(self, "rotation", standart_oreintation, 1.0)
+			tween.tween_property(model, "rotation", standart_oreintation, 1.0)
 
 func on_starship_pressed(camera: Camera3D, event: InputEvent, position: Vector3, normal: Vector3, shape_idx: int):
 	if event is InputEventMouseButton:

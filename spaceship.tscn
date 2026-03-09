@@ -44,7 +44,7 @@ animations = [{
 }]
 
 [node name="Spaceship" type="Node3D" unique_id=447347502]
-transform = Transform3D(0.9978015, 0, -0.0662739, 0, 0.99999994, 0, 0.066273905, 0, 0.9978014, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 script = ExtResource("1_7g3nn")
 
 [node name="MouseZone" type="Area3D" parent="." unique_id=37065389]
@@ -57,9 +57,10 @@ shape = SubResource("SphereShape3D_7g3nn")
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 0, 0, 0)
 
 [node name="Name" type="Label3D" parent="." unique_id=599181751]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9291899, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.12302816, 0.9291897, 2.3554912)
 billboard = 1
-text = "Spaceship"
+text = "Корабль
+Скорость:"
 font_size = 56
 
 [node name="Select_square" type="AnimatedSprite3D" parent="." unique_id=598636087]
