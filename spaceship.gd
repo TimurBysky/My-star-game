@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var Selected_square = $Select_square
 @onready var model = $fighter2
+@onready var name_and_stats = $Name
 
 var parent_star: Node3D
 var move_to_star = false
@@ -9,12 +10,17 @@ var target_star: Node3D
 var selected = false
 var standart_oreintation = Vector3(0, deg_to_rad(90), 0)
 
+var spaceship_type = "Корабль"
+var speed = 1
+
 signal on_space_ship_clicked(spaceship)
 
 func _ready() -> void:
 	$MouseZone.input_event.connect(on_starship_pressed)
 	position =  parent_star.position + Vector3(5, 2, 1)
 	rotation = standart_oreintation
+	name_and_stats.text = (str(spaceship_type) + "\n" + "Скорость: " + str(speed))
+	
 
 func move_to_(star: Node3D):
 	if star != parent_star:
