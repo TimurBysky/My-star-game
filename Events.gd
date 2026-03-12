@@ -27,6 +27,6 @@ func add_to_queue(object, target) -> void:
 func move_queue():
 	for object in queue:
 			available_turns[object] = object_speed[object]
-			while(available_turns[object] <= 0): 
+			while(available_turns[object] >= 0): 
 				print("Move at next turn!" + str(available_turns[str(object)]))
 				available_turns[str(object)] -= 1
