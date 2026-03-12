@@ -11,7 +11,7 @@ var selected = false
 var standart_oreintation = Vector3(0, deg_to_rad(90), 0)
 
 var spaceship_type = "Корабль"
-var speed = 1
+var speed = 2
 
 signal on_space_ship_clicked(spaceship)
 
