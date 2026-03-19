@@ -158,7 +158,7 @@ func _input(event):
 				KEY_C:
 					spawn_spaceship()
 				KEY_T:
-					Events.move_queue()
+					pass
 
 func get_mouse_ground_position(height: float = 0.0) -> Vector3:
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -180,7 +180,6 @@ func on_star_move_clicked(star: Node3D):
 	target_star = star
 	if selected_spaceship != null:
 		selected_spaceship.move_to_(target_star)
-		Events.add_to_queue(selected_spaceship, target_star)
 	
 func on_planet_clicked(planet: Node3D):
 	planet.activate_UI(camera3D, UI)
