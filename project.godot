@@ -15,10 +15,14 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Звёздная игра"
+config/description="4x стратегия, аналог Master of Orion 2 1996 года."
+config/version="0.0.1.6:"
 config/tags=PackedStringArray("4x", "strategy")
 run/main_scene="uid://la258m2hbu14"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.27058825, 0.8901961, 0.7294118, 1)
+boot_splash/image="uid://dbwtotd0wv140"
+config/icon="uid://f7fjbkvngrvc"
 
 [autoload]
 

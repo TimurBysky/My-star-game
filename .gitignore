@@ -1,5 +1,12 @@
 # Godot 4+ specific ignores
 .godot/
+assets/SpaceShipLogo2.png
+assets/SpaceShipLogo2.png.import
+assets/SpaceShipLogo3.png
+assets/SpaceShipLogo3.png.import
+assets/SpaceShipLogo4.png
+assets/SpaceShipLogo4.png.import
+assets/SpaceShipLogo4.png~
 addons/
 /android/
 Game.avi
